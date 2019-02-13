@@ -35,10 +35,16 @@ def parsePeopleList(big_list):
     personList = []
     for i in range(0, len(big_list), 4):
         person = big_list[i:i+4]
+        
         # omit "TSH" from each tsh list
-        person[len(person)-1] = person[len(person)-1][4:]
+        person[3] = person[3][4:]
+        
+        # create float valued TSH list for each person
+        person[3] = person[3].split(',')
+        person[3] = [float(i) for i in person[3]]
         # turn ages into integers
         person[1] = int(person[1])
+        
         personList.append(person)
     return personList
 
