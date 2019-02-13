@@ -42,9 +42,14 @@ def parsePeopleList(big_list):
         # create float valued TSH list for each person
         person[3] = person[3].split(',')
         person[3] = [float(i) for i in person[3]]
+        
+        # sort the float values of each person's TSH scores
+        person[3] = sorted(person[3])
+        
         # turn ages into integers
         person[1] = int(person[1])
         
+        # add the person to the list of people
         personList.append(person)
     return personList
 
