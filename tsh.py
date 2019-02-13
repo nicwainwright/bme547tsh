@@ -32,7 +32,7 @@ def parsePeopleList(big_list):
         big_list: a master list which is just a test_data.txt file read in
 
     Returns:
-        personList: a lists of lists of people and their info
+        personList (list): a lists of lists of people and their info
 
     """
     personList = []
@@ -67,14 +67,10 @@ def getDiagnosis(tshList):
     their test results being between 1.0 and 4.0, inclusive.
 
     Args:
-        tshList: the component of peopleList that contains float tsh values
+        tshList (list): component of peopleList that contains float tsh values
 
     Returns:
-        condition: string that says "hyperthyroidism"
-        as defined by any of their tests results being less than 1.0,
-        "hypothyroidism" as defined by any of their test results being greater
-        than 4.0, or"normal thyroid function" as defined by all of their test
-        results being between 1.0 and 4.0, inclusive.
+        string: condition string that says diagnosis
 
     """
     if min(tshList) < 1.0:
@@ -91,8 +87,7 @@ def makePersonDict(person):
     """Turn a list of a person's values into a dictionary
 
     Args:
-        person (list): a list representation of a person after it has been
-        parsed appropriately
+        person (list): a parsed list representation of a person
 
     Returns:
         dictionary: a dictionary that includes separated names and diagnosis
@@ -110,11 +105,11 @@ def saveToJSON(personDict):
     """Save a person to a JSON
 
     Args:
-        personDict (dict): a dictionary of the values corresponding to one
-        person
+        personDict (dict): a dict of the values corresponding to one person
+
 
     Returns:
-        nothing: but saves a JSON file for the person
+        nothing: nothing but saves a JSON file for the person
 
     """
     first = personDict.get("First Name")
@@ -128,10 +123,8 @@ def saveToJSON(personDict):
 def main():
     """Main function that saves JSON files for number of people in test_data
 
-    Args:
-
     Returns:
-        Nothing: but does save JSONs through calling of saveToJSON function
+        Nothing: does save JSONs through calling of saveToJSON function
 
     """
     full_list = readFile()
