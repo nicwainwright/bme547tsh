@@ -49,20 +49,18 @@ def parsePeopleList(big_list):
     return personList
 
 
-def getDiagnosis():
+def getDiagnosis(tshList):
     """Finds whether a person has hypo/hyper thyroidism
     
     Uses a max and min to determine if a person's TSH tests pass
     
     Args:
-        
     """
-    
-
 
 #def main():
 big_list = readFile()
 peopleList = parsePeopleList(big_list)
 print(peopleList)
+print(getDiagnosis(peopleList[0][3]))
 # if __name__ == "__main__":
  #   main()
