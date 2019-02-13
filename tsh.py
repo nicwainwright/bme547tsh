@@ -55,7 +55,24 @@ def getDiagnosis(tshList):
     Uses a max and min to determine if a person's TSH tests pass
     
     Args:
+        tshList: the component of peopleList that contains float tsh values
+    
+    Returns:
+        condition: string that says "hyperthyroidism" 
+        as defined by any of their tests results being less than 1.0,
+        "hypothyroidism" as defined by any of their test results being greater
+        than 4.0, or"normal thyroid function" as defined by all of their test
+        results being between 1.0 and 4.0, inclusive.
+        
     """
+    if min(tshList) < 1.0:
+        condition = "hyperthyroidism"
+    elif max(tshList) > 4.0:
+        condition = "hypothyroidism"
+    else:
+        condition = "normal thyroid function"
+    
+    return condition
 
 #def main():
 big_list = readFile()
