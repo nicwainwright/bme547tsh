@@ -15,6 +15,7 @@ def readFile():
 
     Returns:
         list: a list of every data entry
+
     """
     file = open("test_data.txt", "r")
     lines = file.read().splitlines()
@@ -30,8 +31,9 @@ def parsePeopleList(big_list):
     Args:
         big_list: a master list which is just a test_data.txt file read in
 
-    Return:
+    Returns:
         personList: a lists of lists of people and their info
+
     """
     personList = []
     for i in range(0, len(big_list), 4):
@@ -94,6 +96,7 @@ def makePersonDict(person):
 
     Returns:
         dictionary: a dictionary that includes separated names and diagnosis
+
     """
     names = person[0].split(' ')
     diagnosis = getDiagnosis(person[3])
@@ -112,6 +115,7 @@ def saveToJSON(personDict):
 
     Returns:
         nothing: but saves a JSON file for the person
+
     """
     first = personDict.get("First Name")
     last = personDict.get("Last Name")
@@ -128,6 +132,7 @@ def main():
 
     Returns:
         Nothing: but does save JSONs through calling of saveToJSON function
+
     """
     full_list = readFile()
     people_list = parsePeopleList(full_list)
