@@ -22,17 +22,41 @@ def readFile():
     del lines[len(lines)-1]
     return lines
 
-def separatePeopleList(big_list):
+
+def parsePeopleList(big_list):
+    """Get a lists of lists where sublists are a person and their info
+    
+    Args:
+        big_list: a master list which is just a test_data.txt file read in
+        
+    Return:
+        personList: a lists of lists of people and their info
+    """
     personList = []
     for i in range(0, len(big_list), 4):
         person = big_list[i:i+4]
+        # omit "TSH" from each tsh list
+        person[len(person)-1] = person[len(person)-1][4:]
+        # turn ages into integers
+        person[1] = int(person[1])
         personList.append(person)
     return personList
 
 
+def getDiagnosis():
+    """Finds whether a person has hypo/hyper thyroidism
+    
+    Uses a max and min to determine if a person's TSH tests pass
+    
+    Args:
+        
+    """
+    
+
+
 #def main():
 big_list = readFile()
-peopleList = separatePeopleList(big_list)
+peopleList = parsePeopleList(big_list)
 print(peopleList)
 # if __name__ == "__main__":
  #   main()
