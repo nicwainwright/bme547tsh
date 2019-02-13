@@ -12,6 +12,17 @@ It will prompt nothing from the user.
 + hypothyroidism: any TSH value greater than 4.0
 + normal thyroid function: TSH values in between 1 and 4 (inclusive)
 
+It saves a dictionary format of all the info corresponding to a person in a JSON file named by the person's name.
++ The data it retains in this dictionary is:
+++ First Name
+++ Last Name
+++ Age
+++ Gender
+++ Diagnosis
+++ TSH (containing a list of all of the test results)
+
+These files are inside the folder 'Person JSON Files'
+
 ### Function
 ```tsh.py``` first reads every line of the test_data.txt file and makes a list of each line. It then removes the 'END' and the end of the list and then parses the list into a list of lists corresponding to each person and their attributes. 
 + This process contains a good amount of playing with the strings, including converting numbers to floats, sorting the TSH values (EXTRA CREDIT) and 
