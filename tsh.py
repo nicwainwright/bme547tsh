@@ -79,10 +79,21 @@ def getDiagnosis(tshList):
     
     return condition
 
+
+def makePersonDict(person):
+    names = person[0].split(' ')
+    diagnosis = getDiagnosis(person[3])
+    dictionary = {"First Name": names[0], "Last Name": names[1],
+                  "Age": person[1], "Gender": person[2],
+                  "Diagnosis": diagnosis, "TSH": person[3]}
+    return dictionary
+    
 #def main():
 big_list = readFile()
 peopleList = parsePeopleList(big_list)
 print(peopleList)
 print(getDiagnosis(peopleList[0][3]))
+p1 = makePersonDict(peopleList[0])
+print(p1.get("First Name"))
 # if __name__ == "__main__":
  #   main()
