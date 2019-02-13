@@ -15,7 +15,6 @@ def readFile():
     
     Returns:
         list: a list of every data entry
-    
     """
     file = open("test_data.txt","r")
     lines = file.read().splitlines()
@@ -82,11 +81,20 @@ def getDiagnosis(tshList):
         condition = "hypothyroidism"
     else:
         condition = "normal thyroid function"
-    
+
     return condition
 
 
 def makePersonDict(person):
+    """Turn a list of a person's values into a dictionary
+    
+    Args:
+        person (list): a list representation of a person after it has been
+        parsed appropriately
+        
+    Returns:
+        dictionary: a dictionary that includes separated names and diagnosis
+    """
     names = person[0].split(' ')
     diagnosis = getDiagnosis(person[3])
     dictionary = {"First Name": names[0], "Last Name": names[1],
@@ -96,6 +104,14 @@ def makePersonDict(person):
 
 
 def saveToJSON(personDict):
+    """Save a person to a JSON
+
+    Args:
+        personDict (dict): a dictionary of the values corresponding to one person
+
+    Returns:
+        nothing: but saves a JSON file for the person
+    """
     first = personDict.get("First Name")
     last = personDict.get("Last Name")
     filename = first + "-" + last + ".json"
@@ -105,6 +121,13 @@ def saveToJSON(personDict):
 
 
 def main():
+    """Main function that saves JSON files for number of people in test_data
+
+    Args:
+
+    Returns:
+        Nothing: but does save JSONs through calling of saveToJSON function
+    """
     full_list = readFile()
     people_list = parsePeopleList(full_list)
     for i in range(len(people_list)):
