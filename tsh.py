@@ -87,6 +87,7 @@ def makePersonDict(person):
                   "Age": person[1], "Gender": person[2],
                   "Diagnosis": diagnosis, "TSH": person[3]}
     return dictionary
+
     
 #def main():
 big_list = readFile()
